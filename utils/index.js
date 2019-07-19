@@ -25,8 +25,8 @@ export const headerStyle = {
 }
 
 export const headerTitleStyle = {
-  fontFamily: regularFont,
-    color: secondaryColor,
+  fontFamily: 'SourceSansPro-Regular',
+    color: '#454545',
     fontSize: 18,
     lineHeight: 22.5,
     fontWeight: '400',
