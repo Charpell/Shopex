@@ -1,9 +1,16 @@
+import React from 'react';
 import { createDrawerNavigator } from 'react-navigation';
 
 import SideBar from '../components/SideBar';
-import HomeScreen from '../screens/HomeScreen';
+import SourceNavigator from './src'
 
 export default createDrawerNavigator({
-  SideBar,
-  HomeScreen
+  SourceNavigator,
+}, {
+  contentComponent: props => <SideBar {...props} />,
+  drawerWidth: 269,
+  drawerBackgroundColor: 'transparent',
+  contentOptions: {
+    activeBackgrundColor: 'transparent'
+  }
 })
