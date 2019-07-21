@@ -40,3 +40,26 @@ export const fashionData = [
       "image": require('../assets/images/facefooter.png')
   }
 ]
+
+export const videoData = [
+  {
+      "play": false,
+      "id": "",
+      "thumb": require('../assets/images/icon-play.png')
+  },
+  {
+      "play": false,
+      "id": "",
+      "thumb": require('../assets/images/icon-play.png')
+  },
+  {
+      "play": false,
+      "id": "",
+      "thumb": require('../assets/images/icon-play.png')
+  },
+  {
+      "play": false,
+      "id": "",
+      "thumb": require('../assets/images/icon-play.png')
+  }
+]
