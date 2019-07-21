@@ -39,3 +39,26 @@ export const products = [
       "isSale": false
   }
 ]
+
+export const categoryLink = [
+  {
+      "name": "All Products",
+      "current": true
+  },
+  {
+      "name": "Jeans",
+      "current": false
+  },
+  {
+      "name": "T-Shirts",
+      "current": false
+  },
+  {
+      "name": "Shoes",
+      "current": false
+  },
+  {
+      "name": "Accessories",
+      "current": false
+  }
+]

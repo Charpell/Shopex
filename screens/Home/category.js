@@ -3,8 +3,9 @@ import styled from 'styled-components'
 
 import LogoImage from '../../components/LogoImage';
 import BackButton from '../../components/BackButton'
-import { products, categories } from '../../data/home'
+import { products, categories, categoryLink } from '../../data/home'
 import ProductCard from '../../components/ProductCard'
+import CategoryLink from '../../components/CategoryLink'
 import { fonts, colors, headerStyle } from '../../utils'
 
 export default class Category extends Component {
@@ -24,6 +25,16 @@ export default class Category extends Component {
           <BannerText>{menCategory.text}</BannerText>
           <BannerSubText>{menCategory.subtext}</BannerSubText>
         </Banner>
+
+        <HorizontalSlider>
+          <Scroll pagingEnabled={true} horizontal={true} showsHorizontalScrollIndicator={false}>
+            {
+              categoryLink.map((category, index) => (
+                <CategoryLink navigation={navigation} key={'category' + index} category={category} />
+              ))
+            }
+          </Scroll>
+        </HorizontalSlider>
 
         <Scroll showsVerticalScrollIndicator={false}>
           {products.map((product, index) => (
@@ -63,6 +74,11 @@ const BannerSubText = styled.Text`
   text-align: center;
   position: absolute;
   bottom: 9
+`
+const HorizontalSlider = styled.View`
+  width: 100%;
+  height: 40;
+  background: ${colors.backgroundColor};
 `
 
 const Scroll = styled.ScrollView`
