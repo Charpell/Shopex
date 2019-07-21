@@ -8,10 +8,11 @@ import FashionDetailScreen from '../../screens/Inspiration/FashionDetail';
 import Video from '../../screens/Inspiration/Videos';
 
 export default createStackNavigator({
+  Home,
   Video,
   Fashion,
   FashionDetailScreen,
   Life,
   LifeDetailScreen,
-  Home
+  
 })
