@@ -24,3 +24,19 @@ export const lifeData =  [
       "date": "DEC 12 2014"
   }
 ]
+
+export const fashionData = [
+  {
+      "title": "BUSINESS",
+      "image": require('../assets/images/facefooter.png')
+  },
+  {
+      "title": "BUSINESS",
+      "image": require('../assets/images/facefooter.png')
+      
+  },
+  {
+      "title": "BUSINESS",
+      "image": require('../assets/images/facefooter.png')
+  }
+]
