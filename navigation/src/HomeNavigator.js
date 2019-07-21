@@ -4,6 +4,7 @@ import Home from '../../screens/Home/home';
 import CategoryScreen from '../../screens/Home/category';
 
 export default createStackNavigator({
+  CategoryScreen,
   Home,
-  CategoryScreen
+  
 })
