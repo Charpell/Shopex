@@ -12,3 +12,30 @@ export const categories = [
       "subtext": "OUTWEAR"
   }
 ]
+
+export const products = [
+  {
+      "id": 1,
+      "name": "MEN ULTRA LIGHT DOWN JACKET",
+      "image": require('../assets/data/ja1.jpg'),
+      "price": 1500,
+      "isNew": false,
+      "isSale": true
+  },
+  {
+      "id": 2,
+      "name": "MEN ULTRA LIGHT DOWN JACKET",
+      "image": require('../assets/data/ja2.jpg'),
+      "price": 700,
+      "isNew": true,
+      "isSale": false
+  },
+  {
+      "id": 3,
+      "name": "MEN ULTRA LIGHT DOWN JACKET",
+      "image": require('../assets/data/ja3.png'),
+      "price": 1385,
+      "isNew": true,
+      "isSale": false
+  }
+]
