@@ -62,3 +62,26 @@ export const categoryLink = [
       "current": false
   }
 ]
+
+export const colorData = [
+    {
+        "value": "#454545",
+        "selected": true
+    },
+    {
+        "value": "#D3604F",
+        "selected": false
+    },
+    {
+        "value": "#8CB8D3",
+        "selected": false
+    },
+    {
+        "value": "#A1D085",
+        "selected": false
+    },
+    {
+        "value": "#9F93BF",
+        "selected": false
+    }
+]
