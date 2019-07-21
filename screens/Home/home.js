@@ -28,7 +28,7 @@ export default class HomeScreen extends Component {
             <CategoryContainer key={index}>
               <CategoryButton 
                 style={{ backgroundColor: cat.backgroundColor }} 
-                onPress={this.props.navigation.navigate(cat.screen)}
+                onPress={() => this.props.navigation.navigate(cat.screen)}
                 activeOpacity={0.9}
                 >
                 <BigText>{cat.text}</BigText>
@@ -36,11 +36,27 @@ export default class HomeScreen extends Component {
               </CategoryButton>
             </CategoryContainer>
           ))}
+          <OfferContainer 
+            onPress={() => this.props.navigation.navigate('CategoryScreen')}
+            activeOpacity={0.9}
+          >
+            <TitleContainer>
+              <MainText>WINTER SALE</MainText>
+              <SubText>UP TO 60% OFF</SubText>
+            </TitleContainer>
+            <ImageBackgroundContainer resizeMode={'cover'} source={require('../../assets/images/emptyback.png')}>
+              <OverlayOfferImage></OverlayOfferImage>
+              <TagContainer>
+                <TagText>{'SHOP NOW'}</TagText>
+              </TagContainer>
+            </ImageBackgroundContainer>
+          </OfferContainer>
         </ScrollView>
       </Container>
     )
   }
 }
+
 
 const Container = styled.View`
   flex: 1;
@@ -100,4 +116,52 @@ const SmallText = styled.Text`
   text-align: center;
   position: absolute;
   bottom: 9
+`
+const ImageBackgroundContainer = styled.ImageBackground`
+  height: 200;
+  width: 100%;
+  top: -40;
+`
+const OfferContainer = styled.TouchableOpacity`
+  margin-top: 100px;
+`
+const TitleContainer = styled.View`
+  align-items: center;
+  top: -30;
+  z-index: 1;
+`
+const MainText = styled.Text`
+  font-family: ${fonts.boldFont};
+  color: ${colors.secondaryColor};
+  font-size: 12;
+  text-align: center;
+  letter-spacing: 3;
+`
+const SubText = styled.Text`
+  font-family: ${fonts.lightFont};
+  color: ${colors.secondaryColor};
+  font-size: 24;
+  text-align: center;
+`
+const OverlayOfferImage = styled.View`
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2)
+`
+const TagContainer = styled.View`
+  width: 105;
+  height: 34;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  right: 0;
+  top: 100;
+  background: ${colors.primaryMoreColored}
+`
+const TagText = styled.Text`
+  color: white;
+  font-size: 12;
+  font-family: ${fonts.boldFont};
+  letter-spacing: 3;
+  text-align: center;
 `

@@ -22,7 +22,6 @@ export const headerStyle = {
   shadowOffset: { height: 0 },
   elevation: 0,
   borderBottomWidth: 0,
-  height: 50
 }
 
 export const headerTitleStyle = {
