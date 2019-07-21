@@ -2,19 +2,40 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import ColorsFilter from '../../components/filters/Colors'
-import { colorData } from '../../data/home';
+import SizeFilter from '../../components/filters/Sizes';
+
+import { colorData, sizeData } from '../../data/home';
 import { colors, fonts } from '../../utils'
 
 export default class filter extends Component {
   colorFilter = () => (
-    <ColorContainer>
+    <FilterView>
       <FilterLabel>{'FILTER BY COLOR'}</FilterLabel>
       <FilterContainer>
         {colorData.map((color, index) => (
           <ColorsFilter color={color} key={'color' + index} />
         ))}
       </FilterContainer>
-    </ColorContainer>
+    </FilterView>
+  )
+
+  sizeFilter = () => (
+    <FilterView>
+      <FilterLabel>{'FILTER BY SIZE'}</FilterLabel>
+      <FilterContainer>
+        {sizeData.map((size, index) => (
+          <SizeFilter size={size} key={'size' + index} />
+        ))}
+      </FilterContainer>
+    </FilterView>
+  )
+
+  filterButton = () => (
+    <ButtonView>
+      <ButtonContainer>
+        <ButtonText>{'APPLY FILTERS'}</ButtonText>
+      </ButtonContainer>
+    </ButtonView>
   )
 
   render() {
@@ -22,8 +43,10 @@ export default class filter extends Component {
       <Container>
         <ViewWrapper>
           <InnerWrapper>
+            {this.sizeFilter()}
             {this.colorFilter()}
           </InnerWrapper>
+            {this.filterButton()}
         </ViewWrapper>
       </Container>
     )
@@ -45,7 +68,7 @@ const InnerWrapper = styled.View`
   background: rgba(255,255,255,0.7);
   padding: 15px 0px;
 `
-const ColorContainer = styled.View`
+const FilterView = styled.View`
   padding: 15px 15px;
 `
 const FilterLabel = styled.Text`
@@ -57,4 +80,20 @@ const FilterContainer = styled.View`
   justify-content: flex-start;
   flex-direction: row;
   margin-top: 10px;
+`
+const ButtonView = styled.View`
+
+`
+const ButtonContainer = styled.TouchableOpacity`
+  background: ${colors.primaryMoreColored};
+  height: 80;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20;
+`
+const ButtonText = styled.Text`
+  font-family: ${fonts.boldFont};
+  font-size: 15;
+  color: white;
+  letter-spacing: 3;
 `

@@ -85,3 +85,30 @@ export const colorData = [
         "selected": false
     }
 ]
+
+export const sizeData = [
+    {
+        "value": "XS",
+        "selected": true
+    },
+    {
+        "value": "S",
+        "selected": false
+    },
+    {
+        "value": "M",
+        "selected": false
+    },
+    {
+        "value": "L",
+        "selected": false
+    },
+    {
+        "value": "XL",
+        "selected": false
+    },
+    {
+        "value": "XXL",
+        "selected": false
+    }
+]
