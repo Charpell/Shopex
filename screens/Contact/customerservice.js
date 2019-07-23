@@ -17,7 +17,7 @@ export default class customerservice extends Component {
       <Container>
         <ContactContainer>
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Shopping at Storex'}</ButtonText1>
@@ -29,7 +29,7 @@ export default class customerservice extends Component {
           </ButtonContainer>
 
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Payments & Sales Tax'}</ButtonText1>
@@ -41,7 +41,7 @@ export default class customerservice extends Component {
           </ButtonContainer>
 
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Order Tracking'}</ButtonText1>
@@ -53,7 +53,7 @@ export default class customerservice extends Component {
           </ButtonContainer>
 
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Returns of online purchases'}</ButtonText1>
@@ -65,7 +65,7 @@ export default class customerservice extends Component {
           </ButtonContainer>
 
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Return of store purchases'}</ButtonText1>
@@ -77,7 +77,7 @@ export default class customerservice extends Component {
           </ButtonContainer>
 
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Recalled Items'}</ButtonText1>
@@ -89,7 +89,7 @@ export default class customerservice extends Component {
           </ButtonContainer>
 
           <ButtonContainer 
-            onPress={() => this.props.navigation.navigate('CustomerServiceScreen')}
+            onPress={() => this.props.navigation.navigate('ServiceScreen')}
           >
             <ButtonRow>
               <ButtonText1>{'Our Responsibility'}</ButtonText1>
