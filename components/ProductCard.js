@@ -4,29 +4,31 @@ import styled from 'styled-components'
 import { fonts, colors } from '../utils'
 
 const ProductCard = ({ navigation, product }) => {
-  const { name, image, id, price, isNew, isSale } = product;
+  const { name, thumbnail, id, price, isNew, isSale, discounted_price } = product;
+  console.log('thumbnail', thumbnail)
 
   return (
     <Container onPress={() => navigation.navigate('ProductScreen', { product })}>
       <ImageContainer>
-        <ProductImage resizeMode={'contain'} source={image} />
+        <ProductImage resizeMode={'contain'} source={thumbnail} />
       </ImageContainer>
       <MainContent>
         <NameContainer>
           <Name>{name}</Name>
         </NameContainer>
         <PriceContainer>
+          <Discount>${discounted_price}</Discount>
           <Price>${price}</Price>
         </PriceContainer>
       </MainContent>
 
       {
-        isNew && <NewTagContainer>
+        discounted_price == 0 && <NewTagContainer>
           <NewTagText>NEW</NewTagText>
         </NewTagContainer>
       }
       {
-        isSale && <SaleTagContainer>
+        discounted_price > 0 && <SaleTagContainer>
           <SaleTagText>SALE</SaleTagText>
         </SaleTagContainer>
       }
@@ -78,6 +80,13 @@ const Price = styled.Text`
   color: ${colors.secondaryColor};
   font-size: 13;
   font-family: ${fonts.boldFont}
+`
+const Discount = styled.Text`
+  text-decoration-line: line-through;
+  color: #999999;
+  font-size: 13;
+  font-family: ${fonts.regularFont};
+  margin-right: 5px;
 `
 const NewTagContainer = styled.View`
   position: absolute;

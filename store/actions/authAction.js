@@ -2,6 +2,7 @@ import axios from 'axios';
 import configAxios from '../../helpers/configAxios';
 
 import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from './actionTypes';
+import { saveToken } from '../../helpers/AsyncStorage';
 
 export const loginLoading = isLoading => ({
   type: LOGIN_LOADING,
@@ -33,6 +34,7 @@ export const login = (email, password) => dispatch => {
     }
 })
     .then(response => {
+      saveToken(response.data.accessToken)
       dispatch(loginSuccess(response.data.user))
       dispatch(loginLoading(false))
     })

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
+import { FlatList, View } from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay'
 
 import LogoImage from '../../components/LogoImage';
 import BackButton from '../../components/BackButton'
@@ -7,17 +10,46 @@ import { products, categories, categoryLink } from '../../data/home'
 import ProductCard from '../../components/ProductCard'
 import CategoryLink from '../../components/CategoryLink'
 import { fonts, colors, headerStyle } from '../../utils'
+import { fetchProducts } from '../../store/actions/productAction';
 
-export default class Category extends Component {
+class Category extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle,
     headerTitle: <LogoImage />,
     headerLeft: <BackButton navigation={navigation} />
   })
 
+  componentDidMount() {
+    this.props.fetchProducts()
+  }
+
+  renderCard = () => {
+    return (
+      this.props.products.products.map((product, index) => (
+        <ProductCard 
+            key={index}
+            product={product}
+            navigation={this.props.navigation}
+          />
+      ))
+    )
+  }
+
   render() {
     const { navigation } = this.props
     const menCategory = categories[0]
+
+    if(this.props.products.isLoading) {
+      return (
+        <View>
+          <Spinner 
+            visible={this.props.products.isLoading}
+            textContent={"Loading..."}
+            animation="fade"
+          />
+        </View>
+      )
+    }
 
     return (
       <Container>
@@ -37,14 +69,18 @@ export default class Category extends Component {
         </HorizontalSlider>
 
         <Scroll showsVerticalScrollIndicator={false}>
-          {products.map((product, index) => (
-            <ProductCard navigation={navigation} key={'product' + index} product={product} />
-          ))}
+          {this.renderCard()}
         </Scroll>
       </Container>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  products: state.product
+})
+
+export default connect(mapStateToProps, { fetchProducts })(Category)
 
 const Container = styled.View`
   flex: 1;

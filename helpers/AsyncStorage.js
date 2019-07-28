@@ -16,3 +16,20 @@ export const retrieveState = async () => {
     }
   } catch (error) {}
 };
+
+export const saveToken = async token => {
+  try {
+    const serializedToken = JSON.stringify(token);
+    await AsyncStorage.setItem("token", serializedToken);
+  } catch (error) {}
+};
+
+export const retrieveToken = async () => {
+  try {
+    const retrievedToken = await AsyncStorage.getItem("token");
+    const token = JSON.parse(retrievedToken)
+    if (token !== null) {
+      return token
+    }
+  } catch (error) {}
+};

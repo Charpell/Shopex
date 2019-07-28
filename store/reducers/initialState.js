@@ -3,3 +3,9 @@ export const loginState = {
   user: [],
   error: null
 }
+
+export const products = {
+  isLoading: false,
+  products: [],
+  error: null
+}

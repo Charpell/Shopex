@@ -17,7 +17,6 @@ class SideBar extends Component {
   }
 
   render() {
-    console.log('props', this.props)
     return (
       <Container>
         <SafeAreaView>
