@@ -38,3 +38,23 @@ export const fetchProducts = () => dispatch => {
       dispatch(productFailure(error))
     })
 }
+
+export const fetchProductsInCategory = categoryId => dispatch => {
+  dispatch(productLoading(true))
+
+  return axios.get(`https://mobilebackend.turing.com/products/inCategory/${categoryId}`, {
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'user-key': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6MTIsIm5hbWUiOiJFZGVyIFRhdmVpcmEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE1NTA3ODYyMjAsImV4cCI6MTU1MDg3MjYyMH0.QEGdry367EQNxBqzuUDCGJscWkq8YQwJdGBgV3hztR0',
+    }
+})
+    .then(response => {
+      dispatch(productSuccess(response.data.rows))
+      dispatch(productLoading(false))
+    })
+    .catch(error => {
+      dispatch(productLoading(false))
+      dispatch(productFailure(error))
+    })
+}

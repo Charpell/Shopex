@@ -43,23 +43,28 @@ export const products = [
 export const categoryLink = [
   {
       "name": "All Products",
-      "current": true
+      "current": true,
+      "id": 0
   },
   {
       "name": "Jeans",
-      "current": false
+      "current": false,
+      "id": 1
   },
   {
       "name": "T-Shirts",
-      "current": false
+      "current": false,
+      "id": 2
   },
   {
       "name": "Shoes",
-      "current": false
+      "current": false,
+      "id": 3
   },
   {
       "name": "Accessories",
-      "current": false
+      "current": false,
+      "id": 4
   }
 ]
 

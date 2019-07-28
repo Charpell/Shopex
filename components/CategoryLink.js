@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
 
+import { fetchProductsInCategory } from '../store/actions/productAction';
 import { fonts, colors } from '../utils'
 
-const CategoryLink = ({ category }) => {
+const CategoryLink = ({ category, fetchProductsInCategory }) => {
   console.log('category', category)
   return (
-    <Container>
+    <Container
+      onPress={() => fetchProductsInCategory(category.id)}
+    >
       <MainText 
         style={ category.current ? { color: 'rgba(246,150,108,0.8)' } : {} }
       >{category.name}
@@ -15,7 +19,7 @@ const CategoryLink = ({ category }) => {
   )
 }
 
-export default CategoryLink
+export default connect(null, {fetchProductsInCategory})(CategoryLink)
 
 const Container = styled.TouchableOpacity`
   height: 60;
