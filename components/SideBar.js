@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
-import { SafeAreaView, ScrollView } from 'react-native'
+import { SafeAreaView, ScrollView, AsyncStorage } from 'react-native'
 import styled from 'styled-components';
+import { withNavigation } from 'react-navigation';
 
 import { fonts, colors } from '../utils';
 
-export default class SideBar extends Component {
+class SideBar extends Component {
+  handleLogout = () => {
+    AsyncStorage.clear()
+      .then(() => this.props.navigation.navigate('LoginScreen'))
+  }
+
   render() {
     return (
       <Container>
@@ -66,7 +72,7 @@ export default class SideBar extends Component {
               <NavButton>
                 <NavButtonText>Customer Support</NavButtonText>
               </NavButton>
-              <NavButton>
+              <NavButton onPress={() => this.handleLogout()}>
                 <NavButtonText style={{ color: colors.primaryColor }}>Log out</NavButtonText>
               </NavButton>
             </MainNavigation>
@@ -91,6 +97,8 @@ export default class SideBar extends Component {
     )
   }
 }
+
+export default withNavigation(SideBar)
 
 const Container = styled.View`
   flex: 1;

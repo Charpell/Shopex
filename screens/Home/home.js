@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
 
 import TitleLogo from '../../components/LogoImage';
 import MenuButton from '../../components/MenuButton';
 import { fonts, colors, headerStyle } from '../../utils';
 import { categories } from '../../data/home';
+import { retrieveState } from '../../helpers/AsyncStorage';
 
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
   static navigationOptions = ({ navigation}) => ({
     headerStyle,
     headerTitle: <TitleLogo />,
     headerLeft: <MenuButton navigation={navigation} />
   })
 
+  componentDidMount() {
+    retrieveState()
+      .then((res) => console.log('res', res))
+  }
+
   render() {
+    console.log('props', this.props)
     return (
       <Container>
         <FlashTexts>
@@ -57,6 +65,12 @@ export default class HomeScreen extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+
+export default connect(mapStateToProps, null)(HomeScreen)
 
 const Container = styled.View`
   flex: 1;

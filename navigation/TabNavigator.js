@@ -5,11 +5,12 @@ import AuthNavigator from './AuthNavigator';
 import HomeNavigator from './HomeNavigator';
 
 const Navigator = createSwitchNavigator({
+  LandingScreen,
+
   AuthNavigator,
 
   HomeNavigator,
 
-  LandingScreen,
 })
 
 export default createAppContainer(Navigator)

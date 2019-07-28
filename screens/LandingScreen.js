@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import { retrieveState } from '../helpers/AsyncStorage';
 
 export default class LandingScreen extends Component {
     constructor(props) {
         super(props)
+    }
+
+    async componentDidMount() {
+      let response = await retrieveState()
+      try {
+        if (response) {
+          this.props.navigation.navigate('HomeScreen')
+        } else {
+          this.props.navigation.navigate('LoginScreen')
+        }
+      } catch(error) {}
     }
 
     render() {

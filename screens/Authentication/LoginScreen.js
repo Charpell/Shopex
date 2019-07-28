@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { login } from '../../store/actions/authAction';
+import { saveState, retrieveState } from '../../helpers/AsyncStorage';
 import { fonts, colors, headerStyle, headerTitleStyle } from '../../utils';
 
 class LoginScreen extends Component {
@@ -17,11 +18,13 @@ class LoginScreen extends Component {
     email: "",
     password: ""
   }
+  
 
   handleLogin = () => {
     this.props.login(this.state.email, this.state.password)
       .then(() => {
         if (this.props.auth.user) {
+          saveState(this.props.auth.user)
           this.props.navigation.navigate('HomeScreen')
         }
       })
