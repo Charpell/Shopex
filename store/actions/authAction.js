@@ -1,7 +1,7 @@
 import axios from 'axios';
 import configAxios from '../../helpers/configAxios';
 
-import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE } from './actionTypes';
+import { LOGIN_LOADING, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from './actionTypes';
 
 export const loginLoading = isLoading => ({
   type: LOGIN_LOADING,
@@ -33,7 +33,6 @@ export const login = (email, password) => dispatch => {
     }
 })
     .then(response => {
-      console.log('response', response)
       dispatch(loginSuccess(response.data.user))
       dispatch(loginLoading(false))
     })
@@ -42,3 +41,10 @@ export const login = (email, password) => dispatch => {
       dispatch(loginFailure(error))
     })
 }
+
+export const logOut = () => dispatch => (
+  dispatch({
+    type: LOGOUT,
+    payload: []
+  })
+)

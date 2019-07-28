@@ -2,16 +2,22 @@ import React, { Component } from 'react'
 import { SafeAreaView, ScrollView, AsyncStorage } from 'react-native'
 import styled from 'styled-components';
 import { withNavigation } from 'react-navigation';
+import { connect } from 'react-redux';
 
+import { logOut } from '../store/actions/authAction';
 import { fonts, colors } from '../utils';
 
 class SideBar extends Component {
   handleLogout = () => {
     AsyncStorage.clear()
-      .then(() => this.props.navigation.navigate('LoginScreen'))
+      .then(() => {
+        this.props.logOut()
+        this.props.navigation.navigate('LoginScreen')
+      })
   }
 
   render() {
+    console.log('props', this.props)
     return (
       <Container>
         <SafeAreaView>
@@ -98,7 +104,7 @@ class SideBar extends Component {
   }
 }
 
-export default withNavigation(SideBar)
+export default connect(null, { logOut })(withNavigation(SideBar))
 
 const Container = styled.View`
   flex: 1;

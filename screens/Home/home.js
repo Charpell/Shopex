@@ -16,13 +16,8 @@ class HomeScreen extends Component {
     headerLeft: <MenuButton navigation={navigation} />
   })
 
-  componentDidMount() {
-    retrieveState()
-      .then((res) => console.log('res', res))
-  }
-
   render() {
-    console.log('props', this.props)
+    // console.log('props', this.props)
     return (
       <Container>
         <FlashTexts>
