@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import { Font } from 'expo';
 import { View } from 'react-native';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
+import rootReducer from './store/reducers/rootReducer'
 import TabNavigator from './navigation/TabNavigator';
+
+const store = createStore(rootReducer, 
+  compose(applyMiddleware(thunk))  
+)
 
 export default class App extends Component {
   constructor(props) {
@@ -26,6 +35,12 @@ export default class App extends Component {
   render() {
     const { state: { fontLoaded }} = this;
     
-    return fontLoaded ? <TabNavigator /> : <View />
+    return (
+      fontLoaded ? (
+        <Provider store={store}>
+          <TabNavigator />
+        </Provider>)
+       : <View />
+    )
   }
 }
