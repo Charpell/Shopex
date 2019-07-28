@@ -1,31 +1,51 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import { login } from '../../store/actions/authAction';
 import { fonts, colors, headerStyle, headerTitleStyle } from '../../utils';
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
   static navigationOptions = () => ({
     title: "SIGN IN",
     headerStyle,
     headerTitleStyle
   })
+  
+  state = {
+    email: "",
+    password: ""
+  }
+
+  handleLogin = () => {
+    this.props.login(this.state.email, this.state.password)
+      .then(() => {
+        if (this.props.auth.user) {
+          this.props.navigation.navigate('HomeScreen')
+        }
+      })
+  }
 
   render() {
     return (
       <Container>
         <Logo source={require('../../assets/images/logo.png')} />
         <TextInput
+          onChangeText={email => this.setState({ email })}
           placeholder="Email"
           keyboardType="email-address"
+          autoCapitalize="none"
         />
         <TextInput
+          onChangeText={password => this.setState({ password })}
           placeholder="Password"
           secureTextEntry={true}
+          autoCapitalize="none"
         />
         <IconEmail source={require('../../assets/images/icon-mail.png')} />
         <IconPassword source={require('../../assets/images/icon-password.png')} />
-        <TouchableOpacity >
+        <TouchableOpacity onPress={this.handleLogin}>
           <Button>
             <ButtonText>Log In</ButtonText>
           </Button>
@@ -34,6 +54,12 @@ export default class LoginScreen extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, { login })(LoginScreen)
 
 const Container = styled.View`
   position: absolute;
