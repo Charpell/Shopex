@@ -31,7 +31,6 @@ class LoginScreen extends Component {
   }
 
   render() {
-    console.log('props', this.props)
     return (
       <Container>
         <Logo source={require('../../assets/images/logo.png')} />

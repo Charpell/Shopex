@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const BackButton = () => {
+const BackButton = ({ navigation }) => {
   return (
-    <Container>
+    <Container
+      onPress={() => navigation.goBack()}
+    >
       <ButtonImage 
         source={require('../assets/images/icon-back.png')}
       />
@@ -13,7 +15,7 @@ const BackButton = () => {
 
 export default BackButton
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   width: 100;
   height: 20;
   align-items: flex-start;

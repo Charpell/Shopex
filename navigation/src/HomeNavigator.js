@@ -1,12 +1,11 @@
 import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from '../../screens/Home/home';
-import CategoryScreen from '../../screens/Home/category';
-import FilterScreen from '../../screens/Home/filter';
+import MenCategory from '../../screens/Store/mencategory';
+import WomenCategory from '../../screens/Store/womencategory';
 
 export default createStackNavigator({
-  FilterScreen,
-  CategoryScreen,
   HomeScreen,
-  
+  MenCategory,
+  WomenCategory
 })
