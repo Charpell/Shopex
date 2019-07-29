@@ -3,14 +3,14 @@ import styled from 'styled-components'
 
 import { fonts, colors } from '../utils'
 
-const ProductCard = ({ navigation, product }) => {
+const ProductCard = ({ navigation, product, image }) => {
   const { name, thumbnail, id, price, isNew, isSale, discounted_price } = product;
   console.log('thumbnail', thumbnail)
 
   return (
     <Container onPress={() => navigation.navigate('ProductScreen', { product })}>
       <ImageContainer>
-        <ProductImage resizeMode={'contain'} source={thumbnail} />
+        <ProductImage resizeMode={'contain'} source={image} />
       </ImageContainer>
       <MainContent>
         <NameContainer>
@@ -53,10 +53,9 @@ const ImageContainer = styled.View`
   justify-content: center;
   align-items: center;
 `
-const ProductImage = styled.View`
+const ProductImage = styled.Image`
   width: 70;
   height: 70;
-  background: white;
 `
 const MainContent = styled.View`
   flex: 0.7

@@ -33,6 +33,7 @@ class Category extends Component {
             key={index}
             product={product}
             navigation={this.props.navigation}
+            image={require('../../assets/data/ja1.jpg')}
           />
       ))
     )
