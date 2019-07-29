@@ -9,3 +9,7 @@ export const products = {
   products: [],
   error: null
 }
+
+export const components = {
+  filterMenu: false
+}

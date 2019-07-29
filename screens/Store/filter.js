@@ -57,6 +57,7 @@ const Container = styled.View`
   flex: 1;
   flex-direction: column;
   justify-content: flex-end;
+  width: 100%
 `
 const ViewWrapper = styled.View`
   height: 55%;

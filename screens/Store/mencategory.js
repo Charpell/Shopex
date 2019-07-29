@@ -6,6 +6,8 @@ import Spinner from 'react-native-loading-spinner-overlay'
 
 import LogoImage from '../../components/LogoImage';
 import BackButton from '../../components/BackButton'
+import FilterButton from '../../components/FilterButton'
+import Modal from './modal';
 import { products, categories, categoryLink } from '../../data/home'
 import ProductCard from '../../components/ProductCard'
 import CategoryLink from '../../components/CategoryLink'
@@ -16,7 +18,8 @@ class Category extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle,
     headerTitle: <LogoImage />,
-    headerLeft: <BackButton navigation={navigation} />
+    headerLeft: <BackButton navigation={navigation} />,
+    headerRight: <FilterButton navigation={navigation} />
   })
 
   componentDidMount() {
@@ -53,6 +56,7 @@ class Category extends Component {
 
     return (
       <Container>
+        <Modal />
         <Banner style={{ backgroundColor: menCategory.backgroundColor }}>
           <BannerText>{menCategory.text}</BannerText>
           <BannerSubText>{menCategory.subtext}</BannerSubText>
