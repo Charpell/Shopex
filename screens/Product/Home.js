@@ -7,9 +7,14 @@ import { sliderImages } from '../../data/product';
 import { colors, fonts } from '../../utils'
 
 export default class Home extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    header: null
+  })
+
   render() {
     const { navigation } = this.props
     const product = navigation.getParam('product')
+    console.log('product', product)
 
     return (
       <Container>
@@ -27,6 +32,30 @@ export default class Home extends Component {
         <SliderContainer>
           <Slider images={sliderImages} />
         </SliderContainer>
+        <ProductDescription>
+          <ProductDescriptionText>{product.description}</ProductDescriptionText>
+        </ProductDescription>
+
+        <ProductCart>
+          <UpButton>
+            <UpImage 
+              resizeMode={'contain'}
+              source={require('../../assets/images/icon-up.png')}
+            />
+            <CustomizeText>{'CUSTOMIZE'}</CustomizeText>
+          </UpButton>
+          <CartActionContainer>
+            <PriceContainer>
+              <Discount>${product.discounted_price}</Discount>
+              <Price>${product.price}</Price>
+            </PriceContainer>
+            <AddToCartContainer>
+              <AddToCartButton>
+                <AddToCartText>{'ADD TO CART'}</AddToCartText>
+              </AddToCartButton>
+            </AddToCartContainer>
+          </CartActionContainer>
+        </ProductCart>
       </Container>
     )
   }
@@ -52,12 +81,13 @@ const ProductName = styled.Text`
 const ProductButtons = styled.View`
   flex-direction: row;
   align-self: flex-end;
-  right: -15;
+  /* right: -15; */
   padding-top: 50;
 `
 const CloseButtonContainer = styled.View`
-  width: 35;
-  height: 35;
+  width: 135;
+  height: 135;
+  background: yellow
 `
 const CloseImage = styled.Image`
   width: 15;
@@ -65,4 +95,85 @@ const CloseImage = styled.Image`
 `
 const SliderContainer = styled.View`
   height: 75%
+`
+const ProductDescription = styled.View`
+  background: ${colors.backgroundColor};
+  padding: 15px;
+  margin: 0px 15px;
+  top: -75
+`
+const ProductDescriptionText = styled.Text`
+  font-family: ${fonts.lightFont};
+  font-size: 14;
+  color: ${colors.secondaryColor};
+  line-height: 20
+`
+const ProductCart = styled.View`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80;
+  background: white;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 15;
+  border-top-color: ${colors.greyColor};
+  border-top-width: 0.5;
+`
+const UpButton = styled.TouchableOpacity`
+  background: ${colors.backgroundColor};
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-right-color: ${colors.greyColor};
+  border-right-width: 0.5;
+  padding: 0px 15px;
+`
+const UpImage = styled.Image`
+  width: 16;
+  height: 16;
+  margin-bottom: 6
+`
+const CustomizeText = styled.Text`
+  font-family: ${fonts.regularFont};
+  font-size: 14;
+  color: ${colors.secondaryColor};
+`
+const CartActionContainer = styled.View`
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  padding-bottom: 10px
+`
+const PriceContainer = styled.View`
+  margin-right: 15px;
+  justify-content: flex-end;
+`
+const Price = styled.Text`
+  color: ${colors.secondaryColor};
+  font-size: 13;
+  font-family: ${fonts.boldFont}
+`
+const Discount = styled.Text`
+  text-decoration-line: line-through;
+  color: #999999;
+  font-size: 13;
+  font-family: ${fonts.regularFont};
+  margin-right: 5px;
+`
+const AddToCartContainer = styled.View`
+  justify-content: flex-end
+`
+const AddToCartButton = styled.TouchableOpacity`
+  background: ${colors.primaryColor};
+  height: 70%;
+  justify-content: center;
+  padding: 0px 10px;
+  border-radius: 2
+`
+const AddToCartText = styled.Text`
+  color: ${colors.boldFont};
+  font-size: 12;
+  color: white;
+  letter-spacing: 3
 `

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { colors } from '../../utils'
-
+import ImageSlider from 'react-native-image-slider'
 
 const Slider = ({ images }) => {
   return (
