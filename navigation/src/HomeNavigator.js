@@ -5,9 +5,10 @@ import MenCategory from '../../screens/Store/mencategory';
 import WomenCategory from '../../screens/Store/womencategory';
 
 export default createStackNavigator({
+  HomeScreen,
+
   WomenCategory
 ,
   MenCategory,
 
-  HomeScreen,
 })

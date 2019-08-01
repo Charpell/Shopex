@@ -3,6 +3,7 @@ import { Platform } from 'react-native'
 import styled from 'styled-components'
 
 import Slider from './Slider';
+import BackButton from '../../components/BackButton';
 import { sliderImages } from '../../data/product';
 import { colors, fonts } from '../../utils'
 
@@ -14,19 +15,12 @@ export default class Home extends Component {
   render() {
     const { navigation } = this.props
     const product = navigation.getParam('product')
-    console.log('product', product)
-
     return (
       <Container>
         <Header>
           <ProductName>{product.name.toUpperCase()}</ProductName>
           <ProductButtons>
-            <CloseButtonContainer>
-              <CloseImage 
-                resizeMode={'contain'}
-                source={require('../../assets/images/icon-close-black.png')}
-              />
-            </CloseButtonContainer>
+            <BackButton navigation={navigation} />
           </ProductButtons>
         </Header>
         <SliderContainer>
@@ -68,7 +62,8 @@ const Container = styled.View`
 const Header = styled.View`
   height: 85;
   padding: 0px 15px;
-  background: ${colors.backgroundColor}
+  background: ${colors.backgroundColor};
+  flex-direction: row
 `
 const ProductName = styled.Text`
   font-family: ${fonts.regularFont};
@@ -79,10 +74,8 @@ const ProductName = styled.Text`
   padding-top: 50;
 `
 const ProductButtons = styled.View`
-  flex-direction: row;
-  align-self: flex-end;
-  /* right: -15; */
-  padding-top: 50;
+  margin-top: 50px;
+  right: -165;
 `
 const CloseButtonContainer = styled.View`
   width: 135;

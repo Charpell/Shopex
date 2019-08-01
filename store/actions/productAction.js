@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { FETCH_PRODUCTS_LOADING, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_FAILURE } from './actionTypes';
+import createConnections from '../../helpers/configAxios';
 
 export const productLoading = isLoading => ({
   type: FETCH_PRODUCTS_LOADING,
