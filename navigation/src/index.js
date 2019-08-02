@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from 'react-navigation';
 
-import HomeScreen from './HomeNavigator';
+import Home from './HomeNavigator';
+import Category from './CategoryNavigator';
 import Inspiration from './InspirationNavigator';
 import Product from './ProductNavigator';
 import Contact from './ContactNavigator';
@@ -9,8 +10,9 @@ import Account from './AccountNavigator';
 import Cart from './CartNavigator';
 
 export default createBottomTabNavigator({
+  Home,
+  Category,
   Cart,
-  HomeScreen,
   Account,
   Bag,
   Contact,

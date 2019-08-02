@@ -29,7 +29,7 @@ export default class cartlist extends Component {
           </CartHeaderLeft>
           <CartHeaderRight>
             <CheckoutButton
-              onPress={() => this.props.navigation.navigate('CheckoutAddress')}
+              onPress={() => this.props.navigation.navigate('Address')}
             >
               <CheckoutText>{'CHECKOUT'}</CheckoutText>
             </CheckoutButton>
@@ -99,7 +99,7 @@ const CartHeaderRight = styled.View`
   justify-content: center;
   align-items: center;
 `
-const CheckoutButton = styled.View`
+const CheckoutButton = styled.TouchableOpacity`
   background: ${colors.primaryMoreColored};
   justify-content: center;
   align-items: center;

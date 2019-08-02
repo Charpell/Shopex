@@ -86,12 +86,14 @@ export default class address extends Component {
                 />
               </FormGroup>
             </TwoColumn>
+            <SaveButtonContainer>
+              <SaveButton
+                onPress={() => this.props.navigation.navigate('Payment')}
+              >
+                <SaveText>{'SAVE AND CONTINUE'}</SaveText>
+              </SaveButton>
+            </SaveButtonContainer>
           </Sc>
-          <SaveButtonContainer>
-            <SaveButton>
-              <SaveText>{'SEND'}</SaveText>
-            </SaveButton>
-          </SaveButtonContainer>
         </PageContent>
       </Container>
     )
@@ -131,21 +133,19 @@ const FormInput = styled.TextInput`
   border-bottom-width: 0.3
 `
 const SaveButtonContainer = styled.View`
-  position: absolute;
-  bottom: 0;
-  width: 100%
+  margin-top: 200px
 `
 const SaveButton = styled.TouchableOpacity`
-  background: #FFDEAD;
+  background: #696969;
   justify-content: flex-start;
   align-items: center;
   height: 80;
-  padding-top: 20px
+  padding: 20px
 `
 const SaveText = styled.Text`
   color: white;
   font-family: ${fonts.boldFont};
-  font-size: 15;
+  font-size: 20;
   letter-spacing: 3;
   text-align: center;
   font-weight: 600;

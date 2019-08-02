@@ -6,8 +6,8 @@ import Terms from '../../screens/Bag/terms';
 import Complete from '../../screens/Bag/complete';
 
 export default createStackNavigator({
+  Address,
   Complete,
   Terms,
   Payment,
-  Address
 })

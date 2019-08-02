@@ -37,7 +37,9 @@ export default class complete extends Component {
         </PageContent>
 
         <BackToShopContainer>
-          <ButtonContainer>
+          <ButtonContainer
+            onPress={() => this.props.navigation.navigate('HomeScreen')}
+          >
             <ButtonText>{'BACK TO SHOP'}</ButtonText>
           </ButtonContainer>
         </BackToShopContainer>

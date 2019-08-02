@@ -9,7 +9,7 @@ const ProductListItem = ({ navigation, products }) => {
 
   return (
     <Container
-      onPress={() => navigation.navigate('CartEditScreen', { product })}
+      onPress={() => navigation.navigate('CartEditScreen', { products })}
     >
       <ImageContainer>
         <ProductImage 

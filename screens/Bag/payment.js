@@ -20,6 +20,10 @@ export default class payment extends Component {
     isAgreed: true
   }
 
+  completePayment = () => {
+    this.props.navigation.navigate('Complete')
+  }
+
   render() {
     return (
       <Container>
@@ -60,7 +64,9 @@ export default class payment extends Component {
         </PageContent>
         
         <SaveButtonContainer>
-          <SaveButton>
+          <SaveButton
+            onPress={() => this.completePayment()}
+          >
             <SaveText>{'PAY NOW'}</SaveText>
           </SaveButton>
         </SaveButtonContainer>

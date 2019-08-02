@@ -44,7 +44,9 @@ export default class Home extends Component {
               <Price>${product.price}</Price>
             </PriceContainer>
             <AddToCartContainer>
-              <AddToCartButton>
+              <AddToCartButton
+                onPress={() => navigation.navigate('CartListScreen', { product })}
+              >
                 <AddToCartText>{'ADD TO CART'}</AddToCartText>
               </AddToCartButton>
             </AddToCartContainer>
