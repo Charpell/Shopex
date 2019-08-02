@@ -5,7 +5,6 @@ import { fonts, colors } from '../utils'
 
 const ProductCard = ({ navigation, product, image }) => {
   const { name, thumbnail, id, price, isNew, isSale, discounted_price } = product;
-  console.log('thumbnail', thumbnail)
 
   return (
     <Container onPress={() => navigation.navigate('ProductScreen', { product })}>

@@ -5,7 +5,7 @@ import { FlatList, View } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay'
 
 import LogoImage from '../../components/LogoImage';
-import BackButton from '../../components/BackButton'
+import HomeButton from '../../components/HomeButton'
 import FilterButton from '../../components/FilterButton'
 import Modal from './modal';
 import { products, categories, categoryLink } from '../../data/home'
@@ -18,7 +18,7 @@ class Category extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle,
     headerTitle: <LogoImage />,
-    headerLeft: <BackButton navigation={navigation} />,
+    headerLeft: <HomeButton navigation={navigation} />,
     headerRight: <FilterButton navigation={navigation} />
   })
 

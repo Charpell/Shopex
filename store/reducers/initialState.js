@@ -13,3 +13,10 @@ export const products = {
 export const components = {
   filterMenu: false
 }
+
+export const cartItem = {
+  isLoading: false,
+  cart: [],
+  total: [],
+  error: null
+}

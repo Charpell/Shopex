@@ -1,28 +1,75 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import Spinner from 'react-native-loading-spinner-overlay'
+
 
 import LogoImage from '../../components/LogoImage';
 import MenuButton from '../../components/MenuButton';
 import ProductListItem from '../../components/ProductListItem';
 import { cart } from '../../data/product';
 import { fonts, colors, headerStyle } from '../../utils';
+import { fetchCartItems } from '../../store/actions/cartAction';
 
-export default class cartlist extends Component {
+class cartlist extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle: headerStyle,
     headerTitle: <LogoImage />,
     headerLeft: <MenuButton navigation={navigation} />
   })
 
+  componentDidMount() {
+    this.props.fetchCartItems()
+  }
+
+  renderCard = () => {
+    return (
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {this.props.cart.cart.map((product, index) => (
+          <ProductListItem
+            key={index} 
+            navigation={this.props.navigation}
+            products={product}
+          />
+        ))}
+      </ScrollView>
+    )
+  }
+
+  renderSubTotal = () => {
+    return (
+      <View>
+        {this.props.cart.cart.map((product, index) => (
+          <SubTotal key={index}>
+            <SubTotalText>SubTotal</SubTotalText>
+            <SubTotalText style={{ textAlign: 'right' }}>${product.subtotal}</SubTotalText>
+          </SubTotal>
+        ))}
+      </View>
+    )
+  }
+
   render() {
+    if(this.props.cart.isLoading) {
+      return (
+        <View>
+          <Spinner 
+            visible={this.props.cart.isLoading}
+            textContent={"Loading..."}
+            animation="fade"
+          />
+        </View>
+      )
+    }
+
     return (
       <Container>
         <CartHeader>
           <CartHeaderLeft>
             <View style={{ flexDirection: 'row' }}>
               <HeaderText>{'You have '}</HeaderText>
-              <HeaderTextBold>{'3 items '}</HeaderTextBold>
+              <HeaderTextBold>{this.props.cart.cart.length} {' items '}</HeaderTextBold>
               <HeaderText>{'in your'}</HeaderText>
             </View>
             <HeaderText>{'shopping bag.'}</HeaderText>
@@ -36,34 +83,25 @@ export default class cartlist extends Component {
           </CartHeaderRight>
         </CartHeader>
         <CartProduct>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            {cart.map((product, index) => (
-              <ProductListItem
-                key={index} 
-                navigation={this.props.navigation}
-                products={product}
-              />
-            ))}
-          </ScrollView>
+          {this.renderCard()}
         </CartProduct>
         <CardPaymentTotal>
-          <SubTotal>
-            <SubTotalText>SubTotal</SubTotalText>
-            <SubTotalText style={{ textAlign: 'right' }}>$334,50</SubTotalText>
-          </SubTotal>
-          <SubTotal>
-            <SubTotalText>SubTotal</SubTotalText>
-            <SubTotalText style={{ textAlign: 'right' }}>$10</SubTotalText>
-          </SubTotal>
+          {this.renderSubTotal()}
         </CardPaymentTotal>
         <TotalContainer>
           <TotalText>Total</TotalText>
-          <TotalText style={{ textAlign: 'right' }}>$344</TotalText>
+          <TotalText style={{ textAlign: 'right' }}>${this.props.cart.total}</TotalText>
         </TotalContainer>
       </Container>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  cart: state.cart
+})
+
+export default connect(mapStateToProps, { fetchCartItems })(cartlist)
 
 const Container = styled.View`
   flex: 1;
