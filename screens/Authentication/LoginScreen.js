@@ -7,7 +7,7 @@ import { login } from '../../store/actions/authAction';
 import { saveState, retrieveState } from '../../helpers/AsyncStorage';
 import { fonts, colors, headerStyle, headerTitleStyle } from '../../utils';
 
-class LoginScreen extends Component {
+export class LoginScreen extends Component {
   static navigationOptions = () => ({
     title: "SIGN IN",
     headerStyle,

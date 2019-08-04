@@ -9,7 +9,7 @@ import { fonts, colors, headerStyle } from '../../utils';
 import { categories } from '../../data/home';
 import { retrieveState } from '../../helpers/AsyncStorage';
 
-class HomeScreen extends Component {
+export class HomeScreen extends Component {
   static navigationOptions = ({ navigation}) => ({
     headerStyle,
     headerTitle: <TitleLogo />,
