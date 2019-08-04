@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 
-import WomenCategory from '../../../screens/Store/womencategory';
+import MenCategory from '../../../screens/Category/mencategory';
 
 const props = {
   navigation: {
@@ -9,9 +9,9 @@ const props = {
   }
 }
 
-describe('<WomenCategory />', () => {
+describe('<MenCategory />', () => {
   it.skip('has 1 child', () => {
-    const tree = renderer.create(<WomenCategory {...props} />).toJSON();
+    const tree = renderer.create(<MenCategory {...props} />).toJSON();
     expect(tree.children.length).toBe(1)
   })
 })

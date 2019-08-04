@@ -23,7 +23,9 @@ export class SideBar extends Component {
           <ScrollView>
             <TopNavigation>
               <TopMenu>
-                <LeftIcon>
+                <LeftIcon
+                  onPress={() => this.props.navigation.navigate('HomeScreen')}
+                >
                   <IconContainer>
                     <IconImage 
                       source={require('../assets/images/icon-nav-shop.png')}
@@ -32,27 +34,34 @@ export class SideBar extends Component {
                     <IconText>Shop</IconText>
                   </IconContainer>
                 </LeftIcon>
-                <RightIcon>
+                <RightIcon
+                  onPress={() => this.props.navigation.navigate('CartListScreen')}
+                >
                 <IconContainer>
                     <IconImage 
                       source={require('../assets/images/icon-nav-bag.png')}
                       resizeMode={'contain'}
                     />
                     <IconText>Bag</IconText>
-                    <BadgeContainer>
-                      <BadgeText>3</BadgeText>
-                    </BadgeContainer>
+                    {
+                      this.props.cart.cart.length > 0 && 
+                      (<BadgeContainer>
+                        <BadgeText>{this.props.cart.cart.length}</BadgeText>
+                      </BadgeContainer>)
+                    }
                   </IconContainer>
                 </RightIcon>
               </TopMenu>
               <BottomMenu>
-                <LeftIcon>
+                <LeftIcon
+                  onPress={() => this.props.navigation.navigate('InspirationHome')}
+                >
                   <IconContainer>
                     <IconImage 
                       source={require('../assets/images/icon-nav-inspiration.png')}
                       resizeMode={'contain'}
                     />
-                    <IconText>Shop</IconText>
+                    <IconText>Inspiration</IconText>
                   </IconContainer>
                 </LeftIcon>
                 <RightIcon>
@@ -103,7 +112,11 @@ export class SideBar extends Component {
   }
 }
 
-export default connect(null, { logOut })(withNavigation(SideBar))
+const mapStateToProps = state => ({
+  cart: state.cart
+})
+
+export default connect(mapStateToProps, { logOut })(withNavigation(SideBar))
 
 const Container = styled.View`
   flex: 1;

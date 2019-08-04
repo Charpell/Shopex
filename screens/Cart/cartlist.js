@@ -19,9 +19,9 @@ class cartlist extends Component {
     headerLeft: <MenuButton navigation={navigation} />
   })
 
-  componentDidMount() {
-    this.props.fetchCartItems()
-  }
+  // componentDidMount() {
+  //   this.props.fetchCartItems()
+  // }
 
   renderCard = () => {
     return (

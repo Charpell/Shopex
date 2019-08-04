@@ -8,6 +8,7 @@ import MenuButton from '../../components/MenuButton';
 import { fonts, colors, headerStyle } from '../../utils';
 import { categories } from '../../data/home';
 import { retrieveState } from '../../helpers/AsyncStorage';
+import { fetchCartItems } from '../../store/actions/cartAction';
 
 export class HomeScreen extends Component {
   static navigationOptions = ({ navigation}) => ({
@@ -15,6 +16,11 @@ export class HomeScreen extends Component {
     headerTitle: <TitleLogo />,
     headerLeft: <MenuButton navigation={navigation} />
   })
+
+  componentDidMount() {
+    this.props.fetchCartItems()
+  }
+
 
   render() {
     // console.log('props', this.props)
@@ -65,7 +71,7 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, null)(HomeScreen)
+export default connect(mapStateToProps, { fetchCartItems })(HomeScreen)
 
 const Container = styled.View`
   flex: 1;

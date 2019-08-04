@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 
-import Filter from '../../../screens/Store/filter';
+import Filter from '../../../screens/Category/filter';
 
 const props = {
   navigation: {

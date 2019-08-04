@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 
-import Modal from '../../../screens/Store/modal';
+import Modal from '../../../screens/Category/modal';
 
 const props = {
   navigation: {
