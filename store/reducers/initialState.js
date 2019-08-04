@@ -17,6 +17,6 @@ export const components = {
 export const cartItem = {
   isLoading: false,
   cart: [],
-  total: [],
+  total: 0,
   error: null
 }

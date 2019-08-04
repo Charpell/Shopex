@@ -14,7 +14,7 @@ const ProductListItem = ({ navigation, products }) => {
       <ImageContainer>
         <ProductImage 
           resizeMode={'contain'}
-          source={image}
+          source={require('../assets/data/ja2.jpg')}
         />
       </ImageContainer>
       <ContentContainer>

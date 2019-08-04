@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import { colors, fonts } from '../utils'
+import { removeItemCart, fetchCartItems } from '../store/actions/cartAction';
 
 class ProductEditItem extends Component {
-  remove = () => {
 
+  remove = () => {
+    const { item_id } = this.props.products
+    this.props.removeItemCart(item_id)
+      .then(() => this.props.fetchCartItems())
+    this.props.navigation.goBack()
   }
 
   render() {
     const { name, image, discount, price, size } = this.props.products;
+    console.log('products', this.props.products)
 
   return (
     <Container
@@ -19,7 +26,7 @@ class ProductEditItem extends Component {
       <ImageContainer>
         <ProductImage 
           resizeMode={'contain'}
-          source={image}
+          source={require('../assets/data/ja2.jpg')}
         />
       </ImageContainer>
       <ContentContainer>
@@ -46,7 +53,7 @@ class ProductEditItem extends Component {
   }
 }
 
-export default ProductEditItem
+export default connect(null, { removeItemCart, fetchCartItems })(ProductEditItem)
 
 const Container = styled.TouchableOpacity`
   height: 80;

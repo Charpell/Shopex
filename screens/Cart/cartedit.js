@@ -42,7 +42,7 @@ export default class cartedit extends Component {
   )
 
   render() {
-    const product = this.props.navigation.getParam('product') || {};
+    const product = this.props.navigation.getParam('products') || {};
 
     return (
       <Container>

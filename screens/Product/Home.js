@@ -1,20 +1,44 @@
 import React, { Component } from 'react'
 import { Platform } from 'react-native'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
 
 import Slider from './Slider';
 import BackButton from '../../components/BackButton';
 import { sliderImages } from '../../data/product';
 import { colors, fonts } from '../../utils'
+import { addItemCart } from '../../store/actions/cartAction';
 
-export default class Home extends Component {
+class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   })
+  
+  state = {
+    cart_id: '1xh7q3073djyue06rn',
+    product_id: '',
+    attributes: 'LG, red'
+  }
+  
+  handleSubmit = () => {
+    const { navigation } = this.props;
+    const { product_id } = navigation.getParam('product');
+    const { cart_id, attributes } = this.state;
+
+    const data = {
+      cart_id,
+      product_id,
+      attributes
+    }
+
+    this.props.addItemCart(data)
+    navigation.navigate('CartListScreen')
+  }
 
   render() {
     const { navigation } = this.props
     const product = navigation.getParam('product')
+    console.log('product', product)
     return (
       <Container>
         <Header>
@@ -45,7 +69,7 @@ export default class Home extends Component {
             </PriceContainer>
             <AddToCartContainer>
               <AddToCartButton
-                onPress={() => navigation.navigate('CartListScreen', { product })}
+                onPress={() => this.handleSubmit()}
               >
                 <AddToCartText>{'ADD TO CART'}</AddToCartText>
               </AddToCartButton>
@@ -56,6 +80,8 @@ export default class Home extends Component {
     )
   }
 }
+
+export default connect(null, { addItemCart })(Home)
 
 const Container = styled.View`
   flex: 1;
