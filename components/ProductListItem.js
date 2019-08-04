@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 
 import { colors, fonts } from '../utils'
 
-const ProductListItem = ({ navigation, products }) => {
+export const ProductListItem = ({ navigation, products }) => {
   const { name, image, discount, price, size } = products;
 
   return (

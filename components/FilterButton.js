@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { openFilterMenu } from '../store/actions/componentAction';
 
-const FilterButton = ({ openFilterMenu }) => {
+export const FilterButton = ({ openFilterMenu }) => {
   return (
     <Container
       onPress={() => openFilterMenu()}

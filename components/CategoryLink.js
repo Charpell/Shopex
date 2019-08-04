@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import { fetchProductsInCategory } from '../store/actions/productAction';
 import { fonts, colors } from '../utils'
 
-const CategoryLink = ({ category, fetchProductsInCategory }) => {
-  console.log('category', category)
+export const CategoryLink = ({ category, fetchProductsInCategory }) => {
   return (
     <Container
       onPress={() => fetchProductsInCategory(category.id)}

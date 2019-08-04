@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { colors, fonts } from '../utils'
 import { removeItemCart, fetchCartItems } from '../store/actions/cartAction';
 
-class ProductEditItem extends Component {
+export class ProductEditItem extends Component {
 
   remove = () => {
     const { item_id } = this.props.products

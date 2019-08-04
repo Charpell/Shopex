@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { logOut } from '../store/actions/authAction';
 import { fonts, colors } from '../utils';
 
-class SideBar extends Component {
+export class SideBar extends Component {
   handleLogout = () => {
     AsyncStorage.clear()
       .then(() => {
