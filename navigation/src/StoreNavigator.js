@@ -4,6 +4,6 @@ import StoreHome from '../../screens/Store/home';
 import SelectedStore from '../../screens/Store/selected';
 
 export default createStackNavigator({
-  SelectedStore,
-  StoreHome
+  StoreHome,
+  SelectedStore
 })

@@ -10,12 +10,13 @@ import Cart from './CartNavigator';
 import Store from './StoreNavigator';
 
 export default createBottomTabNavigator({
-  Store,
+  Contact,
+
   Home,
   Account,
   Category,
   Cart,
   Bag,
-  Contact,
-  Inspiration
+  Inspiration,
+  Store
 })

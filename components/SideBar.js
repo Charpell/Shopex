@@ -64,7 +64,9 @@ export class SideBar extends Component {
                     <IconText>Inspiration</IconText>
                   </IconContainer>
                 </LeftIcon>
-                <RightIcon>
+                <RightIcon
+                  onPress={() => this.props.navigation.navigate('StoreHome')}
+                >
                 <IconContainer>
                     <IconImage 
                       source={require('../assets/images/icon-nav-stores.png')}
@@ -83,7 +85,9 @@ export class SideBar extends Component {
               <NavButton>
                 <NavButtonText>My Account</NavButtonText>
               </NavButton>
-              <NavButton>
+              <NavButton
+                onPress={() => this.props.navigation.navigate('ContactHome')}
+              >
                 <NavButtonText>Customer Support</NavButtonText>
               </NavButton>
               <NavButton onPress={() => this.handleLogout()}>
