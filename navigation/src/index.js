@@ -7,8 +7,10 @@ import Contact from './ContactNavigator';
 import Bag from './CheckoutNavigator';
 import Account from './AccountNavigator';
 import Cart from './CartNavigator';
+import Store from './StoreNavigator';
 
 export default createBottomTabNavigator({
+  Store,
   Home,
   Account,
   Category,
