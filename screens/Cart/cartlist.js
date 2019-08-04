@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView } from 'react-native'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { connect } from 'react-redux';
 import Spinner from 'react-native-loading-spinner-overlay'
 

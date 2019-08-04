@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import { fonts } from '../../utils'
 const selected = require('../../assets/images/icon-size-selected.png')

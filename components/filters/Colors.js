@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 const selected = require('../../assets/images/selected-color-bg.png')
 const notSelected = require('../../assets/images/filter-item-bg.png')

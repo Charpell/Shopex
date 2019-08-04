@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { Switch } from 'react-native-switch';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import LogoImage from '../../components/LogoImage';
 import BackButton from '../../components/BackButton';

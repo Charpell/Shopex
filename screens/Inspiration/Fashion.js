@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 import InspirationHeader from '../../components/InspirationHeader';
 import FashionCarousel from '../../components/FashionCarousel'

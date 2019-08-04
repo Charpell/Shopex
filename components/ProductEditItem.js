@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { connect } from 'react-redux';
 
 import { colors, fonts } from '../utils'
@@ -17,7 +17,6 @@ class ProductEditItem extends Component {
 
   render() {
     const { name, image, discount, price, size } = this.props.products;
-    console.log('products', this.props.products)
 
   return (
     <Container

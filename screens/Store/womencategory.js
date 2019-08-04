@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import { connect } from 'react-redux';
 import { FlatList, View } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay'

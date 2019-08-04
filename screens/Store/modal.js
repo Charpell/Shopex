@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Animated, TouchableOpacity, Dimensions, AsyncStorage } from 'react-native'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { Icon } from 'expo';
 import { connect } from 'react-redux';
 

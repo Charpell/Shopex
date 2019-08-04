@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import BackButton from '../../components/BackButton'
 import LogoImage from '../../components/LogoImage'

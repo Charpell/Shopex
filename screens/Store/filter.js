@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 import ColorsFilter from '../../components/filters/Colors'
 import SizeFilter from '../../components/filters/Sizes';

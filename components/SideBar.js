@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SafeAreaView, ScrollView, AsyncStorage } from 'react-native'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
 

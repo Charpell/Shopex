@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import { login } from '../../store/actions/authAction';
 import { saveState, retrieveState } from '../../helpers/AsyncStorage';

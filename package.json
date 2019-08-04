@@ -12,7 +12,11 @@
     "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^[@./a-zA-Z0-9$_-]+\\.(png|jpg|gif)$": "RelativeImageStub"
+    },
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "axios": "^0.19.0",

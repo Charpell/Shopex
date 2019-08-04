@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { retrieveState } from '../helpers/AsyncStorage';
 
 export default class LandingScreen extends Component {

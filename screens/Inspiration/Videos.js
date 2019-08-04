@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import YouTube from 'react-native-youtube'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import InspirationHeader from '../../components/InspirationHeader';
 import Line from '../../components/Line';

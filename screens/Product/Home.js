@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Platform } from 'react-native'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import { connect } from 'react-redux';
 
 import Slider from './Slider';
