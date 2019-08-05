@@ -1,18 +1,18 @@
 import { createStackNavigator } from 'react-navigation';
 
 import InspirationHome from '../../screens/Inspiration/Home';
-import Life from '../../screens/Inspiration/Life';
+import LifeScreen from '../../screens/Inspiration/Life';
 import LifeDetailScreen from '../../screens/Inspiration/LifeDetails';
-import Fashion from '../../screens/Inspiration/Fashion';
+import FashionScreen from '../../screens/Inspiration/Fashion';
 import FashionDetailScreen from '../../screens/Inspiration/FashionDetail';
-import Video from '../../screens/Inspiration/Videos';
+import VideoScreen from '../../screens/Inspiration/Videos';
 
 export default createStackNavigator({
   InspirationHome,
-  Video,
-  Fashion,
+  VideoScreen,
+  FashionScreen,
   FashionDetailScreen,
-  Life,
+  LifeScreen,
   LifeDetailScreen,
   
 })

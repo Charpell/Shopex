@@ -17,7 +17,7 @@ export default class Home extends Component {
   render() {
     return (
       <Container>
-        <VerticalBoxContainer activeOpacity={0.95}>
+        <VerticalBoxContainer activeOpacity={0.95} onPress={() => this.props.navigation.navigate('LifeScreen')}>
           <VerticalBox style={{ backgroundColor: '#D3D3D3' }}>
             <Line width={40} />
             <InspirationText strongText="L" restLetters="IFE" />
@@ -25,7 +25,7 @@ export default class Home extends Component {
           </VerticalBox>
         </VerticalBoxContainer>
 
-        <VerticalBoxContainer activeOpacity={0.95}>
+        <VerticalBoxContainer activeOpacity={0.95} onPress={() => this.props.navigation.navigate('FashionScreen')}>
           <VerticalBox style={{ backgroundColor: '#A9A9A9' }}>
             <Line width={88} />
             <InspirationText strongText="F" restLetters="ASHION" />
@@ -33,7 +33,7 @@ export default class Home extends Component {
           </VerticalBox>
         </VerticalBoxContainer>
 
-        <VerticalBoxContainer activeOpacity={0.95}>
+        <VerticalBoxContainer activeOpacity={0.95} onPress={() => this.props.navigation.navigate('VideoScreen')}>
           <VerticalBox style={{ backgroundColor: '#696969' }}>
             <Line width={72} />
             <InspirationText strongText="V" restLetters="IDEOS" />
