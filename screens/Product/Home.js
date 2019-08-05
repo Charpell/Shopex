@@ -9,7 +9,7 @@ import { sliderImages } from '../../data/product';
 import { colors, fonts } from '../../utils'
 import { addItemCart } from '../../store/actions/cartAction';
 
-class Home extends Component {
+export class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   })

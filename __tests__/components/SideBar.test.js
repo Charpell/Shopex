@@ -5,7 +5,12 @@ import { SideBar } from '../../components/SideBar';
 
 const props = {
   navigation: {},
-  logOut: jest.fn()
+  logOut: jest.fn(),
+  cart: {
+    cart: {
+      
+    }
+  }
 }
 
 describe('<SideBar />', () => {
