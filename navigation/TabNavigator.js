@@ -5,9 +5,10 @@ import AuthNavigator from './AuthNavigator';
 import HomeNavigator from './HomeNavigator';
 
 const Navigator = createSwitchNavigator({
+  LandingScreen,
+
   HomeNavigator,
 
-  LandingScreen,
 
   AuthNavigator,
 

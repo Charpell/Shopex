@@ -21,9 +21,11 @@ export class LoginScreen extends Component {
   
 
   handleLogin = () => {
+    if (!this.state.email || !this.state.password) return
+
     this.props.login(this.state.email, this.state.password)
       .then(() => {
-        if (this.props.auth.user) {
+        if (!this.props.auth.error) {
           saveState(this.props.auth.user)
           this.props.navigation.navigate('HomeScreen')
         }
@@ -39,12 +41,14 @@ export class LoginScreen extends Component {
           placeholder="Email"
           keyboardType="email-address"
           autoCapitalize="none"
+          style={ this.props.auth.error ? { borderColor: 'red' } : {} }
         />
         <TextInput
           onChangeText={password => this.setState({ password })}
           placeholder="Password"
           secureTextEntry={true}
           autoCapitalize="none"
+          style={ this.props.auth.error ? { borderColor: 'red' } : {} }
         />
         <IconEmail source={require('../../assets/images/icon-mail.png')} />
         <IconPassword source={require('../../assets/images/icon-password.png')} />

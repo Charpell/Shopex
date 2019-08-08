@@ -1,7 +1,7 @@
 export const loginState = {
   isLoading: false,
   user: [],
-  error: null
+  error: false
 }
 
 export const products = {

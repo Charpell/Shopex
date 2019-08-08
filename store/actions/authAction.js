@@ -34,13 +34,16 @@ export const login = (email, password) => dispatch => {
     }
 })
     .then(response => {
+      console.log('response', response)
       saveToken(response.data.accessToken)
       dispatch(loginSuccess(response.data.user))
+      dispatch(loginFailure(false))
       dispatch(loginLoading(false))
     })
     .catch(error => {
+      console.log('error', error)
       dispatch(loginLoading(false))
-      dispatch(loginFailure(error))
+      dispatch(loginFailure(true))
     })
 }
 
