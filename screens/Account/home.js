@@ -21,7 +21,7 @@ export default class home extends Component {
         
         <OrderContainer>
           <ProgressButton
-            onPress={this.props.navigation.navigate('OrderStatusScreen')}
+            onPress={() => this.props.navigation.navigate('StatusScreen')}
           >
             <ProgressImage 
               resizeMode={'contain'}

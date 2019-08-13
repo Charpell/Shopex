@@ -12,9 +12,9 @@ import Store from './StoreNavigator';
 export default createBottomTabNavigator({
   Home,
   Account,
-  Category,
+  // Category,
   Cart,
-  Bag,
+  // Bag,
   Contact,
   Inspiration,
   Store

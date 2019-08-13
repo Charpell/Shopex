@@ -1,17 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer'
 
-import WomenCategory from '../../../screens/Category/womencategory';
+import { Category } from '../../../screens/Category/womencategory';
 
 const props = {
   navigation: {
     navigate: jest.fn()
+  },
+  products: {
+    isLoading: false,
+    products: []
   }
 }
 
 describe('<WomenCategory />', () => {
-  it.skip('has 1 child', () => {
-    const tree = renderer.create(<WomenCategory {...props} />).toJSON();
+  it('has 1 child', () => {
+    const tree = renderer.create(<Category {...props} />).toJSON();
     expect(tree.children.length).toBe(1)
   })
 })

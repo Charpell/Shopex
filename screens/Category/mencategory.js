@@ -14,7 +14,7 @@ import CategoryLink from '../../components/CategoryLink'
 import { fonts, colors, headerStyle } from '../../utils'
 import { fetchProducts } from '../../store/actions/productAction';
 
-class Category extends Component {
+export class Category extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle,
     headerTitle: <LogoImage />,

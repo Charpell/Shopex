@@ -1,4 +1,7 @@
+import React from "react";
 import { createStackNavigator } from 'react-navigation';
+import { MaterialIcons } from '@expo/vector-icons';
+
 
 import InspirationHome from '../../screens/Inspiration/Home';
 import LifeScreen from '../../screens/Inspiration/Life';
@@ -7,7 +10,10 @@ import FashionScreen from '../../screens/Inspiration/Fashion';
 import FashionDetailScreen from '../../screens/Inspiration/FashionDetail';
 import VideoScreen from '../../screens/Inspiration/Videos';
 
-export default createStackNavigator({
+const activeColor = "#4775f2";
+const inactiveColor = "#b8bece";
+
+const InspirationNavigator = createStackNavigator({
   InspirationHome,
   VideoScreen,
   FashionScreen,
@@ -16,3 +22,16 @@ export default createStackNavigator({
   LifeDetailScreen,
   
 })
+
+InspirationNavigator.navigationOptions = {
+  tabBarIcon: ({ focused }) => (
+    <MaterialIcons 
+      name="beach-access"
+      size={26}
+      color={focused ? activeColor : inactiveColor}
+    />
+  )
+}
+
+export default InspirationNavigator
+

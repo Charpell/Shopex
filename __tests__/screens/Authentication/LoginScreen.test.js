@@ -7,6 +7,9 @@ const props = {
   navigation: {
     navigate: jest.fn(),
     handleLogin: jest.fn()
+  },
+  auth: {
+    error: false
   }
 }
 

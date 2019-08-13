@@ -8,3 +8,6 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
+coverage/
+yarn-error.log
+yarn.lock
